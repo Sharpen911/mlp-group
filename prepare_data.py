@@ -6,9 +6,9 @@ import random
 
 
 dataset_name = 'StackOverflow'
-with open('StackOverflow.txt', 'r',encoding='utf-8') as f:
+with open('origialdatas/StackOverflow.txt', 'r',encoding='utf-8') as f:
     sentences = f.read().splitlines()
-with open('StackOverflow_gnd.txt', 'r',encoding='utf-8') as f:
+with open('origialdatas/StackOverflow_gnd.txt', 'r',encoding='utf-8') as f:
     labels = f.read().splitlines()
 random.seed(233333)
 random.shuffle(sentences)

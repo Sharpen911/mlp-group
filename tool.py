@@ -1,14 +1,14 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
 
-with open('clickbait.txt', 'r',encoding='utf-8') as f:#load the clickbait title
+with open('originaldata/clickbait.txt', 'r',encoding='utf-8') as f:#load the clickbait title
     lines = f.readlines()
 clickbait=[]
 for line in lines:
     if line != "\n":
         clickbait.append(line.strip())
 
-with open('non_clickbait.txt', 'r',encoding='utf-8') as f:#load the non_clickbait title
+with open('originaldata/non_clickbait.txt', 'r',encoding='utf-8') as f:#load the non_clickbait title
     lines = f.readlines()
 non_clickbait=[]
 for line in lines:
