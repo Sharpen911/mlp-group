@@ -2,7 +2,7 @@ from textaugment import Wordnet
 import random
 
 
-dataset_name = 'Click'
+dataset_name = 'SearchSnippets'
 source_path = 'originaldata'
 save_path = 'augmentdata'
 
@@ -21,13 +21,13 @@ if dataset_name=='Click':
 
     for i in range(len(pos_sentences)):
         augmented = wordnet_aug.augment(pos_sentences[i])
-        if pos_sentences[i].lower() == augmented:
+        if pos_sentences[i].lower() != augmented:
             #pos_sentences[i]+=' '+augmented
             pos_sentences.append(augmented)
 
     for j in range(len(neg_sentences)):
         augmented = wordnet_aug.augment(neg_sentences[j])
-        if neg_sentences[j].lower() == augmented:
+        if neg_sentences[j].lower() != augmented:
             #neg_sentences[j]+=' '+augmented
             neg_sentences.append(augmented)
 
@@ -45,10 +45,30 @@ if dataset_name=='Click':
 
 
 
-#TODO:another 3 dataset
+
 else:
     with open(source_path+'/'+dataset_name+'.txt', 'r',encoding='utf-8') as f:
         sentences = f.read().splitlines()
     with open(source_path+'/'+dataset_name+'_gnd'+'.txt', 'r',encoding='utf-8') as f:
         labels = f.read().splitlines()
 
+    aug_sentences=[]
+    aug_labels = []
+    for i in range(len(sentences)):
+        augmented = wordnet_aug.augment(sentences[i])
+        if sentences[i].lower() != augmented:
+            aug_sentences.append(augmented)
+            aug_labels.append(labels[i])
+
+    sentences+=aug_sentences
+    labels+=aug_labels
+
+    augment_sentences = '\n'.join(sentences)
+    f = open(save_path + '/'+dataset_name+'.txt', 'w', encoding='utf-8')
+    f.write(augment_sentences)
+    f.close()
+
+    augment_labels = '\n'.join(labels)
+    f = open(save_path + '/' + dataset_name + '_gnd.txt', 'w', encoding='utf-8')
+    f.write(augment_labels)
+    f.close()
