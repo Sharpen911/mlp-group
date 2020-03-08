@@ -16,15 +16,24 @@ from collections import Counter
 import itertools
 
 parser = argparse.ArgumentParser(description='Build Document Graph')
-parser.add_argument('--dataset', type=str, default='20ng',
-                    choices=['clickbait', 'R8', 'R52', 'ohsumed', 'mr', 'yelp', 'agnews','trec','dblp','TREC','imdb','mr','clickbait','biomedical','SearchSnippets','StackOverflow'],
+parser.add_argument('--dataset', type=str, default='Click',
+                    choices=['Click','Biomedical','SearchSnippets','StackOverflow'],
                     help='dataset name')
+
+parser.add_argument('--datatype', type=str, default='originaldata',
+                    choices=['wordnet','word2vec'],
+                    help='use augmentation data or not')#TODO: choose wordnet or word2vec
+
 parser.add_argument('--embedding_dim', type=int, default=300,
                     help='word and document embedding size.')
 args = parser.parse_args()
 
 # build corpus
 dataset = args.dataset
+if args.datatype!='originaldata':
+    datatype = 'augmentdata'
+else:
+    datatype = args.datatype
 
 word_embeddings_dim = args.embedding_dim
 word_vector_map = {} # TODO: modify this to use embedding
@@ -36,7 +45,7 @@ label_names = set()
 train_val_labels = []
 test_labels = []
 
-with open('data/' + dataset + '.txt', 'r') as f:
+with open(datatype+'/data/' + dataset + '.txt', 'r') as f:
     lines = f.readlines()
     for id, line in enumerate(lines):
         doc_name_list.append(line.strip())
@@ -55,14 +64,14 @@ with open('data/' + dataset + '.txt', 'r') as f:
         elif data_name.find('train') != -1:
             train_val_labels.append(label_names_to_index[data_label_name])
 
-with open('data/corpus/' + dataset + '_labels.txt', 'w') as f:
+with open(datatype+'/data/corpus/' + dataset + '_labels.txt', 'w') as f:
     f.write('\n'.join(label_names))
 
 
 print("Loaded labels and indices")
 # Get document content, after removed words
 doc_content_list = []
-with open('data/corpus/' + dataset + '.clean.txt', 'r') as f:
+with open(datatype+'/data/corpus/' + dataset + '.clean.txt', 'r') as f:
     lines = f.readlines()
     doc_content_list = [l.strip() for l in lines]
 
@@ -81,7 +90,7 @@ word_id_map = dict(zip(vocab, np.array(range(len(vocab)))+len(train_val_ids+test
 vocab_size = len(vocab)
 
 
-with open('data/corpus/' + dataset + '_vocab.txt', 'w') as f:
+with open(datatype+'/data/corpus/' + dataset + '_vocab.txt', 'w') as f:
     vocab_str = '\n'.join(vocab)
     f.write(vocab_str)
 
@@ -259,8 +268,8 @@ def export_graph(graph, node_size, phase=""):
     row, col, weight = graph
     adj = sp.csr_matrix(
         (weight, (row, col)), shape=(node_size, node_size))
-    if phase == "": path = "data/ind.{}.adj".format(dataset)
-    else: path = "data/ind.{}.{}.adj".format(dataset, phase)
+    if phase == "": path = (datatype+"/data/ind.{}.adj").format(dataset)
+    else: path = (datatype+"/data/ind.{}.{}.adj").format(dataset, phase)
     with open(path, 'wb') as f:
         pkl.dump(adj, f)
 
@@ -282,26 +291,26 @@ export_graph(concat_graph(B, D), node_size, phase="BD")
 export_graph(B, node_size, phase="B")
 
 # dump objects
-f = open("data/ind.{}.{}.x".format(dataset, "train"), 'wb')
+f = open(datatype+"/data/ind.{}.{}.x".format(dataset, "train"), 'wb')
 pkl.dump(train_ids, f)
 f.close()
 
-f = open("data/ind.{}.{}.y".format(dataset, "train"), 'wb')
+f = open(datatype+"/data/ind.{}.{}.y".format(dataset, "train"), 'wb')
 pkl.dump(train_labels, f)
 f.close()
 
-f = open("data/ind.{}.{}.x".format(dataset, "val"), 'wb')
+f = open(datatype+"/data/ind.{}.{}.x".format(dataset, "val"), 'wb')
 pkl.dump(val_ids, f)
 f.close()
 
-f = open("data/ind.{}.{}.y".format(dataset, "val"), 'wb')
+f = open(datatype+"/data/ind.{}.{}.y".format(dataset, "val"), 'wb')
 pkl.dump(val_labels, f)
 f.close()
 
-f = open("data/ind.{}.{}.x".format(dataset, "test"), 'wb')
+f = open(datatype+"/data/ind.{}.{}.x".format(dataset, "test"), 'wb')
 pkl.dump(test_ids, f)
 f.close()
 
-f = open("data/ind.{}.{}.y".format(dataset, "test"), 'wb')
+f = open(datatype+"/data/ind.{}.{}.y".format(dataset, "test"), 'wb')
 pkl.dump(test_labels, f)
 f.close()

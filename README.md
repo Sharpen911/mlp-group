@@ -1,19 +1,12 @@
 # MLP group project
 
-这个库的使用方法可以在 https://github.com/yao8839836/text_gcn [1]与https://github.com/Tiiiger/SGC [2]两个仓库里找到,Data augmentation基于[3]
+data_aug.py: 生成数据增强以后的文本
 
-originaldata文件夹用来储存我们所有的原始数据,包括加了data augmentation以后的文本.
+使用方法:
+1  运行prepare_data.py,通过修改里面的dataset_name  datatype 来选择使用使用/未使用数据增强的各种数据集
 
-tool.py用来处理两个clickbat[4]文件,prepare_data.py用来处理其他文本.
+2 python remove_word.py --dataset ='选的数据集' --datatype = 'wordnet'or'word2vec'  default = 使用原本的文本
 
-data_aug.py就是我们用来做data augmentation的文件
+3 python build_graph.py --dataset ='' --datatype =''
 
-
-
-[1]Graph Convolutional Networks for Text Classification
-
-[2]Simplifying Graph Convolutional Networks 
-
-[3]Improving short text classification through global augmentation method 
-
-[4]Stop Clickbait: Detecting and Preventing Clickbaits in Online News Media 
+4 python train.py(还需要修改)
