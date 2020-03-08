@@ -5,7 +5,7 @@ import random
 
 
 
-dataset_name = 'Click'
+dataset_name = 'SearchSnippets'
 datatype = 'augmentdata'
 
 if dataset_name=='Click':
