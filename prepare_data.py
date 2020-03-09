@@ -5,8 +5,8 @@ import random
 
 
 
-dataset_name = 'StackOverFlow'
-datatype = 'originaldata' #Choose word2vec_data,wordnet_data or originaldata
+dataset_name = 'StackOverflow'
+datatype = 'word2vec_data' #Choose word2vec_data,wordnet_data or originaldata
 
 if dataset_name=='Click':
     with open(datatype + '/' + dataset_name + 'bait.txt', 'r', encoding='utf-8') as f:  # load the clickbait title

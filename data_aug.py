@@ -1,15 +1,16 @@
 from textaugment import Wordnet
 from textaugment import Word2vec
+import gensim
 
-
-dataset_name = 'SearchSnippets'
+dataset_name = 'Click'
 source_path = 'originaldata'
-save_path = 'word2vecdata'
+save_path = 'word2vec_data'
 
-if save_path=='word2vecdata':
-    augment_model = Word2vec(model='path/to/gensim/model'or'gensim model itself', runs=5, v=False, p=0.5)
+if save_path=='word2vec_data':
+    word2vec_model = gensim.models.KeyedVectors.load_word2vec_format('./googlemodel.bin',binary=True)
+    augment_model = Word2vec(model=word2vec_model, runs=1, v=False, p=0.2)
 if save_path=='wordnet_data':
-    augment_model = Wordnet(v=False,n=True, p=0.5)
+    augment_model = Wordnet(v=False,n=True, p=0.2)
 
 
 if dataset_name=='Click':
