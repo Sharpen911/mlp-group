@@ -1,2 +1,0 @@
-python文件 project.py（建议使用ipython）
-原readme文件上有怎么使用，我改成了ReadmeORiginal文件

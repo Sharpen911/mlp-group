@@ -18,17 +18,14 @@ parser.add_argument('--dataset', type=str, default='20ng',
                     help='dataset name')
 
 parser.add_argument('--datatype', type=str, default='originaldata',
-                    choices=['wordnet','word2vec'],
-                    help='use augmentation data or not')#TODO: choose wordnet or word2vec
+                    choices=['wordnet_data','word2vec_data'],
+                    help='use augmentation data or not')
 
 args = parser.parse_args()
 
 dataset = args.dataset
-if args.datatype !='originaldata':
 
-    datatype = 'augmentdata'
-else:
-    datatype = args.datatype
+datatype = args.datatype
 
 train_val_ids = []
 test_ids = []
@@ -85,7 +82,7 @@ for i in train_ids+test_ids+val_ids:
     word_freq.update(doc_words)
 
 vocab, count = zip(*word_freq.most_common())
-if dataset != "mr":
+if dataset == "mr":
     cutoff = -1
 else:
     cutoff = count.index(5)

@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31aa0825-0a7b-4024-8bb4-06d28f3d06ac" name="Default Changelist" comment="" />
+    <list default="true" id="db48b995-a695-4042-8d96-c68b34b9cfc5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mlp-group.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mlp-group.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/Biomedical.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/Biomedical_gnd.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/Clickbait.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/SearchSnippets.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/SearchSnippets_gnd.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/StackOverflow.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/StackOverflow_gnd.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/data/Biomedical.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/data/SearchSnippets.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/data/StackOverflow.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/data/corpus/Biomedical.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/data/corpus/SearchSnippets.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/data/corpus/StackOverflow.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentdata/non_Clickbait.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/build_graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_aug.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_aug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepare_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/prepare_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remove_words.py" beforeDir="false" afterPath="$PROJECT_DIR$/remove_words.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/textaugment/README_Original.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/textaugment/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1YkrCekYXzhwtKnk2DPxKQJdSjF" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1YrnZ2sIrtNchwFGOGJ6HBgw0EU" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -28,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.prepare_data">
+  <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="mlp-group" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -36,54 +55,12 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Administrator\Anaconda3\envs\tf\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\Xiao Peng\.conda\envs\pytorch\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="count_tokens" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="mlp-group" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Administrator\Anaconda3\envs\tf\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/count_tokens.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="data_aug" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="mlp-group" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Administrator\Anaconda3\envs\tf\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_aug.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,9 +76,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Administrator\Anaconda3\envs\tf\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\Xiao Peng\.conda\envs\pytorch\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prepare_data.py" />
@@ -113,33 +90,9 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tool" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="mlp-group" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Administrator\Anaconda3\envs\tf\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tool.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.prepare_data" />
-        <item itemvalue="Python.data_aug" />
-        <item itemvalue="Python.tool" />
-        <item itemvalue="Python.count_tokens" />
       </list>
     </recent_temporary>
   </component>
@@ -148,50 +101,34 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="31aa0825-0a7b-4024-8bb4-06d28f3d06ac" name="Default Changelist" comment="" />
-      <created>1583497309488</created>
+      <changelist id="db48b995-a695-4042-8d96-c68b34b9cfc5" name="Default Changelist" comment="" />
+      <created>1583709632417</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1583497309488</updated>
+      <updated>1583709632417</updated>
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583497501060">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583709653547">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583497501060" />
-    <state x="409" y="0" key="#prepare_data" timestamp="1583498896661">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583709653547" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1583712649174">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="409" y="0" key="#prepare_data/0.0.1366.728@0.0.1366.728" timestamp="1583498896661" />
-    <state x="409" y="0" key="#tool" timestamp="1583497512984">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583712649174" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1583712649174">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="409" y="0" key="#tool/0.0.1366.728@0.0.1366.728" timestamp="1583497512984" />
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom" timestamp="1583699544146">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583712649174" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1583712649173">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583699544146" />
-    <state width="1345" height="179" key="GridCell.Tab.0.center" timestamp="1583699544146">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583712649173" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1583712649174">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583699544146" />
-    <state width="1345" height="179" key="GridCell.Tab.0.left" timestamp="1583699544146">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583699544146" />
-    <state width="1345" height="179" key="GridCell.Tab.0.right" timestamp="1583699544146">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583699544146" />
-    <state x="186" y="9" key="SettingsEditor" timestamp="1583499196787">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583499196787" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1583690553658">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1583690553658" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583712649174" />
   </component>
 </project>

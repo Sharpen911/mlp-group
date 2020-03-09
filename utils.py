@@ -16,7 +16,7 @@ def parse_index_file(filename):
         index.append(int(line.strip()))
     return index
 
-def load_corpus(dataset_str):
+def load_corpus(datatype_str,dataset_str):
     """
     Loads input corpus from gcn/data directory
 
@@ -32,7 +32,7 @@ def load_corpus(dataset_str):
 
     All objects above must be saved using python pickle module.
 
-    :param dataset_str: Dataset name
+    :param dataset_str: Dataset name,datatype_str:use augmentation data or not
     :return: All data input files loaded (as well the training/test data).
     """
     index_dict = {}
@@ -40,17 +40,17 @@ def load_corpus(dataset_str):
     phases = ["train", "val", "test"]
     objects = []
     def load_pkl(path):
-        with open(path.format(dataset_str, p), 'rb') as f:
+        with open(path.format(datatype_str+'/'+dataset_str, p), 'rb') as f:
             if sys.version_info > (3, 0):
                 return pkl.load(f, encoding='latin1')
             else:
                 return pkl.load(f)
 
     for p in phases:
-        index_dict[p] = load_pkl("data/ind.{}.{}.x".format(dataset_str, p))
-        label_dict[p] = load_pkl("data/ind.{}.{}.y".format(dataset_str, p))
+        index_dict[p] = load_pkl((datatype_str+"/data/ind.{}.{}.x").format(dataset_str, p))
+        label_dict[p] = load_pkl((datatype_str+"/data/ind.{}.{}.y").format(dataset_str, p))
 
-    adj = load_pkl("data/ind.{}.BCD.adj".format(dataset_str))
+    adj = load_pkl((datatype_str+"/data/ind.{}.BCD.adj").format(dataset_str))
     adj = adj.astype(np.float32)
     adj = preprocess_adj(adj)
 

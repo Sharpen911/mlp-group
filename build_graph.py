@@ -21,8 +21,8 @@ parser.add_argument('--dataset', type=str, default='Click',
                     help='dataset name')
 
 parser.add_argument('--datatype', type=str, default='originaldata',
-                    choices=['wordnet','word2vec'],
-                    help='use augmentation data or not')#TODO: choose wordnet or word2vec
+                    choices=['wordnet_data','word2vec_data'],
+                    help='use augmentation data or not')
 
 parser.add_argument('--embedding_dim', type=int, default=300,
                     help='word and document embedding size.')
@@ -30,10 +30,7 @@ args = parser.parse_args()
 
 # build corpus
 dataset = args.dataset
-if args.datatype!='originaldata':
-    datatype = 'augmentdata'
-else:
-    datatype = args.datatype
+datatype = args.datatype
 
 word_embeddings_dim = args.embedding_dim
 word_vector_map = {} # TODO: modify this to use embedding

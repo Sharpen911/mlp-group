@@ -13,8 +13,8 @@ from utils import *
 from models import SGC
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset', type=str, default='20ng', help='Dataset string.')
-parser.add_argument('--no-cuda', action='store_true', default=True,
+parser.add_argument('--dataset', type=str, default='Click', help='Dataset string.')
+parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='Disables CUDA training.')
 parser.add_argument('--seed', type=int, default=42, help='Random seed.')
 parser.add_argument('--epochs', type=int, default=3,
@@ -28,6 +28,11 @@ parser.add_argument('--degree', type=int, default=2,
 parser.add_argument('--tuned', action='store_true', help='use tuned hyperparams')
 parser.add_argument('--preprocessed', action='store_true',
                     help='use preprocessed data')
+
+parser.add_argument('--datatype', default='originaldata',
+                    choices=['wordnet_data','word2vec_data'],
+                    help='use augmented data')
+
 args = parser.parse_args()
 args.cuda = not args.no_cuda and torch.cuda.is_available()
 args.device = 'cuda' if args.cuda else 'cpu'
@@ -38,7 +43,7 @@ if args.tuned:
 torch.backends.cudnn.benchmark = True
 set_seed(args.seed, args.cuda)
 
-sp_adj, index_dict, label_dict = load_corpus(args.dataset)
+sp_adj, index_dict, label_dict = load_corpus(args.datatype,args.dataset)
 for k, v in label_dict.items():
     if args.dataset == "mr":
         label_dict[k] = torch.Tensor(v).to(args.device)
