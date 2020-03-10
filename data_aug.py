@@ -2,7 +2,7 @@ from textaugment import Wordnet
 from textaugment import Word2vec
 import gensim
 
-dataset_name = 'Click'
+dataset_name = 'Biomedical'
 source_path = 'originaldata'
 save_path = 'word2vec_data'
 

@@ -1,12 +1,26 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
 import random
+from textaugment import Wordnet
+from textaugment import Word2vec
+import gensim
 
 
 
-
-dataset_name = 'StackOverflow'
+dataset_name = 'SearchSnippets'
 datatype = 'word2vec_data' #Choose word2vec_data,wordnet_data or originaldata
+
+
+if datatype=='word2vec_data':
+    word2vec_model = gensim.models.KeyedVectors.load_word2vec_format('./googlemodel.bin',binary=True)
+    augment_model = Word2vec(model=word2vec_model, runs=1, v=False, p=0.5)
+if datatype=='wordnet_data':
+    augment_model = Wordnet(v=False,n=True, p=0.9)
+
+
+
+
+
 
 if dataset_name=='Click':
     with open(datatype + '/' + dataset_name + 'bait.txt', 'r', encoding='utf-8') as f:  # load the clickbait title
@@ -34,15 +48,39 @@ else:
     with open(datatype+'/'+dataset_name+'_gnd'+'.txt', 'r',encoding='utf-8') as f:
         labels = f.read().splitlines()
 
+
+
 random.seed(233333)
 random.shuffle(sentences)
 random.seed(233333)
 random.shuffle(labels)
 
 
-train_list = ['train']*(int(0.7*len(labels)))
+train_sentences = sentences[:int(0.7*len(sentences))]
+train_labels = labels[:int(0.7*len(labels))]
+test_sentences = sentences[int(0.7 * len(sentences)):]
+test_labels = labels[int(0.7 * len(labels)):]
 
-test_list = ['test']*(int(0.3*len(labels))+1)
+if datatype!='originaldata':
+    index = range(len(train_sentences))
+    selected_index = random.sample(index,int(0.3*len(train_sentences)))
+    selected_index.sort()
+    for i in selected_index:
+        augmented = augment_model.augment(train_sentences[i])
+        train_sentences.append(augmented)
+        train_labels.append(train_labels[i])
+
+sentences = train_sentences+test_sentences
+labels = train_labels+test_labels
+
+
+
+
+
+
+
+train_list = ['train']*(len(train_labels))
+test_list = ['test']*(len(test_labels))
 
 train_or_test_list = train_list+test_list
 
