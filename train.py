@@ -45,7 +45,7 @@ set_seed(args.seed, args.cuda)
 
 sp_adj, index_dict, label_dict = load_corpus(args.datatype,args.dataset)
 for k, v in label_dict.items():
-    if args.dataset == "mr":
+    if args.dataset == "Click":
         label_dict[k] = torch.Tensor(v).to(args.device)
     else:
         label_dict[k] = torch.LongTensor(v).to(args.device)
@@ -104,7 +104,7 @@ def eval_linear(model, features, label, binary=False):
         'accuracy': acc
     }
 if __name__ == '__main__':
-    if args.dataset == "mr": nclass = 1
+    if args.dataset == "Click": nclass = 1
     else: nclass = label_dict["train"].max().item()+1
     if not args.preprocessed:
         adj_dense = sparse_to_torch_dense(sp_adj, device='cpu')
@@ -119,9 +119,9 @@ if __name__ == '__main__':
     model = SGC(nfeat=feat_dict["train"].size(1),
                 nclass=nclass)
     if args.cuda: model.cuda()
-    val_acc, best_model, train_time = train_linear(model, feat_dict, args.weight_decay, args.dataset=="mr")
+    val_acc, best_model, train_time = train_linear(model, feat_dict, args.weight_decay, args.dataset=="Click")
     test_res = eval_linear(best_model, feat_dict["test"].cuda(),
-                           label_dict["test"].cuda(), args.dataset=="mr")
+                           label_dict["test"].cuda(), args.dataset=="Click")
     train_res = eval_linear(best_model, feat_dict["train"].cuda(),
-                            label_dict["train"].cuda(), args.dataset=="mr")
+                            label_dict["train"].cuda(), args.dataset=="Click")
     print("Total Time: {:2f}s, Train acc: {:.4f}, Val acc: {:.4f}, Test acc: {:.4f}".format(precompute_time+train_time, train_res["accuracy"], val_acc, test_res["accuracy"]))

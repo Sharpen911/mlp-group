@@ -82,7 +82,7 @@ for i in train_ids+test_ids+val_ids:
     word_freq.update(doc_words)
 
 vocab, count = zip(*word_freq.most_common())
-if dataset == "mr":
+if dataset == "Click":
     cutoff = -1
 else:
     cutoff = count.index(5)
