@@ -7,6 +7,6 @@
 
 2 python remove_words.py --dataset Click --datatype  wordnet_data(or word2vec_data)  default :使用原本的文本
 
-3 python build_graph.py --dataset Click --datatype =wordnet_data
+3 python build_graph.py --dataset Click --datatype wordnet_data
 
-4 python train.py --dataset =Click --datatype =wordnet_data --seed 42
+4 python train.py --dataset Click --datatype wordnet_data --seed 42
